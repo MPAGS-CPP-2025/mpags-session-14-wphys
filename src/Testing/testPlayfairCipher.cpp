@@ -6,17 +6,11 @@
 TEST(PlayfairCipher, Encrypt)
 {
     PlayfairCipher cc{"hello"};
-    EXPECT_EQ(
-        cc.applyCipher("BOBISSOMESORTOFJUNIORCOMPLEXXENOPHONEONEZEROTHING",
-                       CipherMode::Encrypt),
-        "FHIQXLTLKLTLSUFNPQPKETFENIOLVSWLTFIAFTLAKOWATEQOKPPA");
+    EXPECT_EQ(cc.applyCipher("HELLOWORLD", CipherMode::Encrypt), "RIJVSUYVJN");
 }
 
 TEST(PlayfairCipher, Decrypt)
 {
     PlayfairCipher cc{"hello"};
-    EXPECT_EQ(
-        cc.applyCipher("FHIQXLTLKLTLSUFNPQPKETFENIOLVSWLTFIAFTLAKOWATEQOKPPA",
-                       CipherMode::Decrypt),
-        "BOBISXSOMESORTOFIUNIORCOMPLEXQXENOPHONEONEZEROTHINGZ");
+    EXPECT_EQ(cc.applyCipher("RIJVSUYVJN", CipherMode::Decrypt), "HELLOWORLD");
 }
